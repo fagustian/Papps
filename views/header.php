@@ -33,8 +33,15 @@
           </li>
         </ul>
         <form class="form-inline mt-2 mt-md-0">
-         
-          <button class="btn btn-outline-secondary my-2 my-sm-0" type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">Login / Signup</button>
+
+          <?php if(array_key_exists('id',$_SESSION)){
+            if ($_SESSION['id']){ ?>
+            <a class="btn btn-outline-secondary my-2 my-sm-0" href="?logout=4236a440a662cc8253d7536e5aa17942">Logout</a>
+          <?php } }else{ ?> 
+
+            <button class="btn btn-outline-secondary my-2 my-sm-0" type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">LogIn / SignUp</button>
+
+          <?php } ?>
            
         </form>
       </div>

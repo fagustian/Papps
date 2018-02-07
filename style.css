@@ -1,3 +1,10 @@
+.hurufSerif{
+  font-family: Georgia,serif serif;
+}
+
+.hurufSansSerif{
+  font-family: Helvetica, sans-serif;
+}
 /* Sticky footer styles
 -------------------------------------------------- */
 html {
@@ -7,6 +14,8 @@ html {
   body {
     /* Margin bottom by footer height */
     margin-bottom: 60px;
+    
+
   }
   .footer {
     position: absolute;
@@ -36,9 +45,10 @@ html {
     font-size: 80%;
   }
 
-
+/* Navbar */
   #myNavbar{
-      background-color: rgb(109, 18, 79);
+      /* background-color: rgb(109, 18, 79); */
+      background-color:  rgb(72, 20, 55);
   }
 
   #siteTitle{
@@ -51,6 +61,10 @@ html {
       color: whitesmoke;
   }
 
+/* Login Modal */
+  #usernameModal{
+    display: none;
+  }
   .modal-header{
     background-color: #8854a5;
   }
@@ -71,7 +85,44 @@ html {
     border-color: rgb(109, 18, 79);
   }
 
- 
+  #signUpBtn:hover{
+    background-color: #cccccc;
+    border-color:  #8854a5;
+  }
+
+  .tulisanPutih{
+    color: whitesmoke;
+  }
+
+  .tulisanHitam{
+    color: black;
+  }
+
+  .tulisanUngu{
+    color:rgb(109, 18, 79); 
+  }
+
+  .tulisanGray{
+    color: gray;
+  }
+
+  #errorDiv{
+    display:none;
+  }
+ /* ===================== */
+ /* inisiasi loginForm pada modal */
+ #loginForm{
+   display: none;
+ }
+
+ /* mengubah text align copy right pada footer ketika pada smartphone */
+ @media screen and (max-width: 48em){
   .footer-container{
-      text-align: center;
+      text-align: center !important;
+  }
+}
+/* end ------------------------ */
+
+  .footer-container{
+      text-align: right;
   }
