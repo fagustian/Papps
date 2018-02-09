@@ -72,9 +72,13 @@
   </div>
 </div>
 <script>
+  $('#btnLoginSignup').click(function(){
+    $('#errorDiv').hide();
+  });
 
 // script untuk toggle Login atau SignUp
   $("#toggleLogin").click(function () {
+   
 
     if ($("#loginActive").val()== 1 ) {
       $('#errorDiv').hide();
@@ -120,7 +124,7 @@
        
         if(msg == 'login'){
           $('#errorDiv').hide();
-          window.location.assign('http://localhost/web/Papps/');
+          window.location.assign('http://localhost/project/Papps/');
          
         }else{
           $('#errorDiv').show();

@@ -39,7 +39,7 @@
             <a class="btn btn-outline-secondary my-2 my-sm-0" href="?logout=4236a440a662cc8253d7536e5aa17942">Logout</a>
           <?php } }else{ ?> 
 
-            <button class="btn btn-outline-secondary my-2 my-sm-0" type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">LogIn / SignUp</button>
+            <button id="btnLoginSignup" class="btn btn-outline-secondary my-2 my-sm-0 btn btn-primary" type="button" data-toggle="modal" data-target="#myModal">LogIn / SignUp</button>
 
           <?php } ?>
            
