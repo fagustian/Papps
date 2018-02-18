@@ -82,6 +82,45 @@
             echo $error;
             exit();
         };
-    }
+    };
+
+    
+
+    if($_GET['actions'] == 'toggleFollow'){
+    
+        $query = "SELECT * FROM `follower` WHERE `follower_id` =".mysqli_real_escape_string($link , $_SESSION['id'])." AND `isfollowing_id`=".mysqli_real_escape_string($link , $_POST['userId']);
+        $result = mysqli_query($link,$query);
+       
+        if(mysqli_num_rows(mysqli_query($link,$query)) > 0){
+            $row = mysqli_fetch_assoc($result);
+            $queryUnFollow = 'DELETE FROM `follower` WHERE  `id` ='.mysqli_real_escape_string($link,$row['id']).' LIMIT 1';
+            mysqli_query($link,$queryUnFollow);
+            echo '1';
+        }else{
+            $queryFollow = 'INSERT INTO `follower` (`follower_id`,`isFollowing_id`) VALUES ('.mysqli_real_escape_string($link,$_SESSION['id']).','.mysqli_real_escape_string($link,$_POST['userId']).')';
+            mysqli_query($link,$queryFollow);
+            echo '2';
+        }
+        
+    };
+
+    if($_GET['actions'] == 'postPapps'){
+        if(empty(ltrim($_POST['postingan']))){
+            echo '0';
+        }else if(strlen($_POST['postingan']) > 145){
+            echo '1';
+        }else{
+             $queryPosting = "INSERT INTO `status` (`status`,
+                `user_id`,
+                `tanggal`) VALUES 
+                ('".mysqli_real_escape_string($link,$_POST['postingan'])."',".mysqli_real_escape_string($link,$_SESSION['id']).
+                ",now())";
+
+            mysqli_query($link,$queryPosting);
+           
+            echo '2';
+
+        }
+    };
 
 ?>

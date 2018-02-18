@@ -72,6 +72,7 @@
   </div>
 </div>
 <script>
+
   $('#btnLoginSignup').click(function(){
     $('#errorDiv').hide();
   });
@@ -137,6 +138,64 @@
     });
   });
 
+
+  // fungsi ketika link ikuti diclik
+
+    $('.toggleFollow').click(function(){ 
+
+       var id = $(this).attr('data-userId');
+
+        $.ajax({ 
+          type:'POST',
+          url:'actions.php?actions=toggleFollow',
+          data:{'userId' : id },
+          
+            success: function(msg){
+              if(msg == '1'){
+                $("a[data-userId='" + id + "']").html('Follow');
+                location.reload();
+              }else if(msg == '2'){
+                $("a[data-userId='" + id + "']").html('Unfollow');
+                location.reload();
+              }
+            }
+        });
+    });     
+      
+
+  // end ---------------------------
+
+  $('#btnPostPapps').click(function(){
+    var posting = $('#textAreaPostPapps').val();
+    $.ajax({ 
+          type:'POST',
+          url:'actions.php?actions=postPapps',
+          data:{'postingan' : posting },
+          
+            success: function(msg){
+              if(msg == '0'){
+                $('.postKosong').show();
+                $('#alertSuksesPapps').hide();
+                $('#pesanKosong').html('<span><strong>Aww..</strong></span><p>Silahkan tulis sesuatu dan coba lagi..</p>');
+              }else if (msg == '1'){ 
+                $('.postKosong').show();
+                $('#alertSuksesPapps').hide();
+                $('#pesanKosong').html('<span><strong>Aww..</strong></span><p>Papps anda lebih terlalu panjang</p>');
+              }else if (msg == '2'){ 
+                $('.postKosong').hide();
+                $('#alertSuksesPapps').show();
+                location.reload();
+                $('#suksesPapps').html('<span>Kamu papps :)</span>');
+
+                
+              }else{
+                alert(msg);
+              }
+            }
+        });
+  });
+
+
   // fungsi dibawah untuk menhide navbasr ketiak discrool ke bawah dan muncul lagi ketika discrool ke ata
   $(function () {
   var lastScrollTop = 0;
@@ -148,25 +207,26 @@
     if (st > lastScrollTop) { // scroll down
       
       // use this is jQuery full is used
-      $navbar.hide()
+     
       
       // use this to use CSS3 animation
-      // $navbar.addClass("fade-out");
-      // $navbar.removeClass("fade-in");
+      $navbar.addClass("fade-out");
+      $navbar.removeClass("fade-in");
       
       // use this if no effect is required
-      // $navbar.hide();
+      $navbar.fadeOut();
+    
     } else { // scroll up
       
       // use this is jQuery full is used
-      $navbar.show()
+     
       
       // use this to use CSS3 animation
-      // $navbar.addClass("fade-in");
-      // $navbar.removeClass("fade-out");
+      $navbar.addClass("fade-in");
+      $navbar.removeClass("fade-out");
       
       // use this if no effect is required
-      // $navbar.show();
+      $navbar.fadeIn();
     }
     lastScrollTop = st;
   });

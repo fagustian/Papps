@@ -14,22 +14,22 @@
   
     <!-- Fixed navbar -->
     <nav id="myNavbar" class="navbar navbar-toggleable-md navbar-light bg-faded fixed-top ">
-      <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+      <button id='burgerButton' class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
-      <a id="siteTitle" class="navbar-brand" href="https://localhost/web/papps/"><em>Papps</em></a>
+      <a id="siteTitle" class="navbar-brand" href="http://localhost/project/papps/"><em>Papps</em></a>
       <div class="collapse navbar-collapse" id="navbarCollapse">
         <ul class="navbar-nav mr-auto">
 
           <li class="nav-item ">
-            <a class="nav-link" href="#"><span class="nav-item-colour">Your timeline</span></a>
+            <a class="nav-link" href="?page=timeline"><span class="nav-item-colour">Your timeline</span></a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#"><span class="nav-item-colour">Your papps</span></a>
+            <a class="nav-link" href="?page=yourpapps"><span class="nav-item-colour">Your papps</span></a>
           </li>
 
           <li class="nav-item">
-            <a class="nav-link" href="#"><span class="nav-item-colour">Public profiles</span></a>
+            <a class="nav-link" href="?page=publicprofiles"><span class="nav-item-colour">Public profiles</span></a>
           </li>
         </ul>
         <form class="form-inline mt-2 mt-md-0">
