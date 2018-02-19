@@ -161,9 +161,18 @@
             }
         });
     });     
-      
-
+    
   // end ---------------------------
+  $('.blinkNavbar').click(function(){
+
+        $('#btnLoginSignup').css('font-size','110%');
+        $('#btnLoginSignup').css('background','white');
+       
+        
+
+      
+  });
+  // btnPostClick-----------------
 
   $('#btnPostPapps').click(function(){
     var posting = $('#textAreaPostPapps').val();

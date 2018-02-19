@@ -104,6 +104,39 @@ function get_time_ago( $time )
                 }
             };
             
+        }else if($type == 'search'){
+             
+            if($_GET['q'] != ''){
+
+                $query = "SELECT * FROM `status` WHERE `status` LIKE  '%".mysqli_real_escape_string($link , $_GET['q'])."%'";
+
+
+                $result = mysqli_query($link,$query);
+
+                if(mysqli_num_rows($result) > 0){
+
+                    $queryHitungHasil = "SELECT COUNT(`id`) AS jumlah FROM `status` WHERE `status` LIKE  '%".mysqli_real_escape_string($link , $_GET['q'])."%'" ;
+                    $hasilHitung = mysqli_query($link,$queryHitungHasil);
+                    $jumlahHasil = mysqli_fetch_assoc($hasilHitung);
+                    
+                    while ($row = mysqli_fetch_assoc($result)){
+                        
+                        $whereClause = " WHERE `status` LIKE '%".mysqli_real_escape_string($link , $_GET['q'])."%'";
+                    }
+                    echo "<h3>Search Results</h3><p class='tulisanGray'>".$jumlahHasil['jumlah']." hasil ditemukan untuk '".$_GET['q']."'</p>";
+
+                }  else{
+                    echo "<p>Tidak ditemukan hasil untuk '".$_GET['q']."'</p><hr>";
+                    $whereClause = " WHERE `status` = 'lkadfjo@%^2ie'";
+                }              
+
+                
+ 
+            }else{
+                echo "<p>Silahkan masukan kata kunci</p>";
+                $whereClause = " WHERE `status` = 'lkadfjo@%^2ie'";
+            }
+            
         };
 
         if(!array_key_exists('id',$_SESSION)){
@@ -116,7 +149,7 @@ function get_time_ago( $time )
         $result = mysqli_query($link,$query);
 
         if(mysqli_num_rows($result) == 0){
-            echo('teu aya status kanggo ditampilkeun');
+            echo('');
         }else{
         while ($barisanStatus = mysqli_fetch_assoc($result)){
             $userQuery = "SELECT * FROM `users` WHERE `id`='".mysqli_real_escape_string($link,$barisanStatus['user_id'])."'" ;
@@ -162,13 +195,13 @@ function get_time_ago( $time )
 
     // end ================================================
     function tampilSearch(){
-        echo('<div id="searchDiv" class="input-group">
+        echo('<form id="searchDiv" class="input-group">
         <input type="hidden" name="page" value="search">
         <input type="text" name="q" class="form-control" placeholder="Search for...">
         <span class="input-group-btn">
-          <button class="btn btn-secondary" type="button">Go!</button>
+          <button class="btn btn-secondary" type="submit">Go!</button>
         </span>
-      </div>');
+      </form>');
     }
 
     function tampilKotakPapps(){

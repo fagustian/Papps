@@ -22,14 +22,14 @@
         <ul class="navbar-nav mr-auto">
 
           <li class="nav-item ">
-            <a class="nav-link" href="?page=timeline"><span class="nav-item-colour">Your timeline</span></a>
+            <a class="nav-link blinkNavbar" href="?page=timeline"><span class="nav-item-colour">Your timeline</span></a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="?page=yourpapps"><span class="nav-item-colour">Your papps</span></a>
+            <a class="nav-link blinkNavbar" href="?page=yourpapps"><span class="nav-item-colour">Your papps</span></a>
           </li>
 
           <li class="nav-item">
-            <a class="nav-link" href="?page=publicprofiles"><span class="nav-item-colour">Public profiles</span></a>
+            <a class="nav-link blinkNavbar" href="?page=publicprofiles"><span class="nav-item-colour">Public profiles</span></a>
           </li>
         </ul>
         <form class="form-inline mt-2 mt-md-0">
